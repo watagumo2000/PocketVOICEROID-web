@@ -56,8 +56,9 @@
         <span class={[catchLineSm, 'shadow-[4px_4px_0_var(--color-pink)]']}>あなたの毎日に</span><br />
         <span class={[catchLineSm, 'shadow-[4px_4px_0_var(--color-blue)]']}>推しのいる生活を</span>
       </p>
-      <a href="#feature" class={[button({ size: 'lg', tone: 'pink' }), 'mt-8']}>アプリの特徴を見る ›</a>
-      <div class="flex flex-wrap gap-8">
+      <!-- ボタンは列の中で中央にそろえる -->
+      <a href="#feature" class={[button({ size: 'lg', tone: 'pink' }), 'mt-8 self-center']}>アプリの特徴を見る ›</a>
+      <div class="flex flex-wrap justify-center gap-8 self-stretch">
         <a href="#character" class={button({ size: 'sm' })}>キャラクター</a>
         <a href="#about" class={button({ size: 'sm' })}>このアプリについて</a>
       </div>
