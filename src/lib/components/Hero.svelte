@@ -51,8 +51,8 @@
         >
       </p>
       <h1 class="w-full"><Logo /></h1>
-      <!-- 横書きのキャッチコピー（960px 以下） -->
-      <p class="text-catch-sm md:hidden">
+      <!-- 横書きのキャッチコピー（960px 以下）。ロゴやボタンと同じく中央にそろえる -->
+      <p class="self-stretch text-center text-catch-sm md:hidden">
         <span class={[catchLineSm, 'shadow-[4px_4px_0_var(--color-pink)]']}>あなたの毎日に</span><br />
         <span class={[catchLineSm, 'shadow-[4px_4px_0_var(--color-blue)]']}>推しのいる生活を</span>
       </p>
