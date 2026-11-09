@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+/* =====================================================================
+   VOICEROID POCKET — design-ref/tokens.json の値を Tailwind のテーマにしたもの。
+   Tailwind の初期値（色・フォント・文字サイズ・角丸・影）は消して、トークンにある値だけを使えるようにしている。
+   値を変えるときは tokens.json と見比べて、両方そろえること。
+   ===================================================================== */
+@theme {
+  /* ---- color：bg-pink / text-ink / border-ink / fill-blue … ---- */
+  --color-*: initial;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f7f5fb;
+  --color-line: #eceaf3;
+  --color-placeholder: #b9b5cc;
+  --color-pink: #ffb3be;
+  --color-blue: #b3e4ff;
+  --color-ink: #3d3a55;
+  --color-ink-muted: #5e5a78;
+  --color-on-ink: #ffffff;
+  --color-on-ink-muted: #d5d2e3;
+  --color-focus: #3d3a55;
+
+  /* ---- font：font-display（Fredoka）/ font-body（Zen Maru Gothic） ---- */
+  --font-*: initial;
+  --font-display: "Fredoka", "Zen Maru Gothic", system-ui, sans-serif;
+  --font-body: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", system-ui, sans-serif;
+  /* 読み込んでいる太さだけ（--font-*: initial で消えるので書き直す） */
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* ---- text：text-heading-l などで、大きさ・行間・字間・太さをまとめて指定する ---- */
+  --text-*: initial;
+  --text-display-en: 104px;
+  --text-display-en--line-height: 1;
+  --text-display-en--letter-spacing: 0.02em;
+  --text-display-en--font-weight: 700;
+  --text-display-en-sm: 56px;
+  --text-display-en-sm--line-height: 1;
+  --text-display-en-sm--letter-spacing: 0.02em;
+  --text-display-en-sm--font-weight: 700;
+  --text-number: 120px;
+  --text-number--line-height: 0.9;
+  --text-number--font-weight: 700;
+  --text-eyebrow-en: 15px;
+  --text-eyebrow-en--line-height: 1.4;
+  --text-eyebrow-en--letter-spacing: 0.26em;
+  --text-eyebrow-en--font-weight: 700;
+  --text-nav: 14px;
+  --text-nav--line-height: 1;
+  --text-nav--letter-spacing: 0.06em;
+  --text-nav--font-weight: 600;
+  --text-catch: 34px;
+  --text-catch--line-height: 1.6;
+  --text-catch--letter-spacing: 0.12em;
+  --text-catch--font-weight: 900;
+  --text-catch-sm: 22px;
+  --text-catch-sm--line-height: 1.6;
+  --text-catch-sm--letter-spacing: 0.12em;
+  --text-catch-sm--font-weight: 900;
+  --text-heading-xl: 46px;
+  --text-heading-xl--line-height: 1.3;
+  --text-heading-xl--font-weight: 900;
+  --text-heading-xl-sm: 32px;
+  --text-heading-xl-sm--line-height: 1.3;
+  --text-heading-xl-sm--font-weight: 900;
+  --text-heading-l: 36px;
+  --text-heading-l--line-height: 1.5;
+  --text-heading-l--font-weight: 900;
+  --text-heading-l-sm: 26px;
+  --text-heading-l-sm--line-height: 1.5;
+  --text-heading-l-sm--font-weight: 900;
+  --text-heading-m: 22px;
+  --text-heading-m--line-height: 1.4;
+  --text-heading-m--font-weight: 900;
+  --text-quote: 19px;
+  --text-quote--line-height: 1.6;
+  --text-quote--font-weight: 900;
+  --text-button-l: 18px;
+  --text-button-l--line-height: 1;
+  --text-button-l--font-weight: 900;
+  --text-button: 16px;
+  --text-button--line-height: 1;
+  --text-button--font-weight: 900;
+  --text-body: 16px;
+  --text-body--line-height: 1.9;
+  --text-body--font-weight: 500;
+  --text-label: 14px;
+  --text-label--line-height: 1.5;
+  --text-label--font-weight: 700;
+  --text-tag: 13px;
+  --text-tag--line-height: 1.5;
+  --text-tag--font-weight: 700;
+  --text-caption: 12px;
+  --text-caption--line-height: 1.8;
+  --text-caption--font-weight: 500;
+
+  /* ---- spacing：1単位 = 1px。p-18 は space-18（18px）、gap-56 は space-56（56px） ---- */
+  --spacing: 1px;
+
+  /* ---- radius：rounded-xs … rounded-pill ---- */
+  --radius-*: initial;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-screen: 30px;
+  --radius-phone: 42px;
+  --radius-pill: 999px;
+
+  /* ---- shadow：shadow-press / shadow-card / shadow-label-blue … ---- */
+  --shadow-*: initial;
+  --shadow-press: 0 5px 0 #3d3a55;
+  --shadow-thumb: 4px 4px 0 #3d3a55;
+  --shadow-pop: 5px 5px 0 #3d3a55;
+  --shadow-card: 8px 8px 0 #3d3a55;
+  --shadow-label-pink: 0 0 0 2.5px #3d3a55, 5px 5px 0 2.5px #ffb3be;
+  --shadow-label-blue: 0 0 0 2.5px #3d3a55, 5px 5px 0 2.5px #b3e4ff;
+  --shadow-quote-pink: 0 0 0 2.5px #3d3a55, 6px 6px 0 2.5px #ffb3be;
+  --shadow-quote-blue: 0 0 0 2.5px #3d3a55, 6px 6px 0 2.5px #b3e4ff;
+
+  /* 英字の大見出し・番号のずらし影（text-shadow-pop-pink / text-shadow-pop-blue） */
+  --text-shadow-*: initial;
+  --text-shadow-pop-pink: 6px 6px 0 #ffb3be;
+  --text-shadow-pop-blue: 6px 6px 0 #b3e4ff;
+
+  /* ---- breakpoint：スマホ（〜760px）とタブレット（〜960px）を基準にする ---- */
+  --breakpoint-*: initial;
+  --breakpoint-xs: 481px;
+  --breakpoint-sm: 761px;
+  --breakpoint-md: 961px;
+  --breakpoint-lg: 1101px;
+
+  /* ---- motion（README「動き」） ---- */
+  --animate-bob: vp-bob 2.8s ease-in-out infinite alternate;
+  --animate-twinkle: vp-twinkle 1.8s ease-in-out infinite alternate;
+  --animate-swap: vp-swap 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-marquee: vp-marquee 26s linear infinite;
+  --animate-wave: vp-wave 0.8s ease-in-out infinite alternate;
+
+  @keyframes vp-bob {
+    from { translate: 0 0; }
+    to { translate: 0 -12px; }
+  }
+  @keyframes vp-twinkle {
+    from { transform: scale(0.6); opacity: 0.5; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  @keyframes vp-swap {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes vp-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes vp-wave {
+    from { transform: scaleY(0.45); }
+    to { transform: scaleY(1); }
+  }
+}
+
+/* =====================================================================
+   Tailwind にない書き方だけ、小さな独自ユーティリティにする
+   ===================================================================== */
+
+/* フチの太さ（tokens.json の border）：border-thin 2px / border-mid 2.5px / border-bold 3px / border-frame 4px */
+@utility border-thin { border-width: 2px; }
+@utility border-mid { border-width: 2.5px; }
+@utility border-bold { border-width: 3px; }
+@utility border-frame { border-width: 4px; }
+
+/* 英字の白抜き文字（display-en / number）：塗り surface＋3px の ink フチを文字の外側に出す */
+@utility text-outline {
+  color: var(--color-surface);
+  -webkit-text-stroke: 3px var(--color-ink);
+  paint-order: stroke fill;
+}
+
+/* SVG の文字のフチを外側に出す（ロゴ） */
+@utility paint-stroke {
+  paint-order: stroke fill;
+  stroke-linejoin: round;
+}
+
+/* マーカー下線：文字の下 40% に色を敷く */
+@utility marker-pink { background: linear-gradient(transparent 60%, var(--color-pink) 60%); }
+@utility marker-blue { background: linear-gradient(transparent 60%, var(--color-blue) 60%); }
+
+/* 縦書き（キャッチコピー、名前の札） */
+@utility writing-vertical { writing-mode: vertical-rl; }
+
+/* 水玉 */
+@utility dots-pink {
+  background-image: radial-gradient(circle at 4px 4px, var(--color-pink) 3px, transparent 3.5px);
+  background-size: 22px 22px;
+}
+@utility dots-blue {
+  background-image: radial-gradient(circle at 4px 4px, var(--color-blue) 3px, transparent 3.5px);
+  background-size: 22px 22px;
+}
+@utility dots-line {
+  background-image: radial-gradient(circle, var(--color-line) 2.5px, transparent 3px);
+  background-size: 24px 24px;
+}
+
+/* 斜め帯の形（DiagonalBands）：上辺が右にずれる平行四辺形 */
+@utility clip-band-main { clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%); }
+@utility clip-band-sub { clip-path: polygon(62% 0, 100% 0, 38% 100%, 0 100%); }
+
+/* =====================================================================
+   ページ全体の土台
+   ===================================================================== */
+@layer base {
+  html {
+    /* 固定ヘッダーの下にページ内リンクの行き先が隠れないようにする（高さは Header.svelte が入れる） */
+    scroll-padding-top: var(--header-h, 84px);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-weight: 500;
+  }
+
+  /* 見出しは文節で折り返す（「付けられ／る」のように1文字だけ落ちるのを防ぐ） */
+  h1,
+  h2,
+  h3 {
+    word-break: auto-phrase;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+  }
+
+  /* 「視差効果を減らす」設定ではすべての動きを止める */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}

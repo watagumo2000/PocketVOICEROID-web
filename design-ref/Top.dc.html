@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>VOICEROID POCKET</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&amp;family=Zen+Maru+Gothic:wght@500;700;900&amp;family=Fredoka:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#3D3A55}a:hover{color:#1F1C33}
+.dg{font-family:'Dela Gothic One',sans-serif}
+.fr{font-family:'Fredoka',sans-serif}
+.mid{text-anchor:middle}
+.k{paint-order:stroke fill;stroke-linejoin:round}
+.s24{stroke-width:24}.s12{stroke-width:12}.s16{stroke-width:16}.s8{stroke-width:8}
+.tw{animation:tw 1.8s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+.tw2{animation-delay:-.9s}
+@keyframes tw{from{transform:scale(.6);opacity:.5}to{transform:scale(1);opacity:1}}
+.mq{display:inline-flex;animation:mq 26s linear infinite}
+.mq span{padding-right:1.4em}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.big-en{margin:0;font-family:'Fredoka',sans-serif;font-weight:700;line-height:1;letter-spacing:.02em;color:#FFFFFF;-webkit-text-stroke:3px #3D3A55;paint-order:stroke fill}
+.num{font-family:'Fredoka',sans-serif;font-weight:700;line-height:.9;color:#FFFFFF;-webkit-text-stroke:3px #3D3A55;paint-order:stroke fill}
+.shot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;height:100%;border-radius:30px;background:#F7F5FB;border:2px dashed #B9B5CC;box-sizing:border-box;text-align:center;color:#5E5A78;font-size:13px;font-weight:700}
+.thumb{position:relative;width:96px;height:96px;border:3px solid #3D3A55;border-radius:20px;cursor:pointer;display:flex;align-items:flex-end;justify-content:center;padding:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:14px;color:#3D3A55;transition:transform .15s,box-shadow .15s;overflow:hidden}
+.thumb:hover{transform:translateY(-3px)}
+.thumb:focus-visible{outline:3px solid #3D3A55;outline-offset:3px}
+.bob{animation:bob 2.8s ease-in-out infinite alternate}
+.b2{animation-delay:-1.4s}
+.wv rect{animation:wv .8s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+.wv rect:nth-child(2){animation-delay:-.2s}.wv rect:nth-child(3){animation-delay:-.45s}.wv rect:nth-child(4){animation-delay:-.1s}.wv rect:nth-child(5){animation-delay:-.6s}
+@keyframes wv{from{transform:scaleY(.45)}to{transform:scaleY(1)}}
+@keyframes bob{from{translate:0 0}to{translate:0 -12px}}
+.swap{animation:swap .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes swap{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+.sit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.sit-card{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:20px;box-sizing:border-box;background:#FFFFFF;border:3px solid #3D3A55;border-radius:20px;box-shadow:5px 5px 0 #3D3A55}
+.sit-ic{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border:2.5px solid #3D3A55;border-radius:50%}
+.sit-ic svg{width:26px;height:26px;fill:none;stroke:#3D3A55;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.sit-name{margin:4px 0 0;font-size:20px;font-weight:900}
+.sit-when{margin:0;font-size:14px;line-height:1.7;color:#5E5A78}
+.step{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;background:#FFFFFF;border:3px solid #3D3A55;border-radius:20px}
+.step-no{flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:2.5px solid #3D3A55;border-radius:50%;font-family:'Fredoka',sans-serif;font-weight:700;font-size:20px}
+.step-t{margin:0;font-size:17px;font-weight:900}
+.step-d{margin:4px 0 0;font-size:14px;line-height:1.8;color:#5E5A78}
+.cd{padding:1px 6px;background:#F7F5FB;border:1.5px solid #ECEAF3;border-radius:6px;font-family:'Fredoka',sans-serif;font-weight:600;color:#3D3A55}
+@media (max-width: 960px){.sit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width: 760px){
+.kv{height:760px!important}
+.kv-nav{display:none!important}
+.kv-copy{display:none!important}
+.kv-lead{left:14px!important;top:84px!important;width:300px!important}
+.kv-one{width:280px!important;margin-left:-140px!important;bottom:56px!important}
+.kv-badge-copy{right:auto!important;left:14px!important;top:auto!important;bottom:24px!important}
+.wrap{padding:0 18px!important}
+.feat-row{flex-direction:column!important;gap:20px!important}
+.feat-vis{height:500px!important}
+.chara-stage{height:480px!important}
+}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="position: relative; width: 100%; overflow: hidden; background: #FFFFFF; color: #3D3A55; font-family: 'Zen Maru Gothic', sans-serif">
+<svg aria-hidden="true" width="0" height="0" style="position: absolute">
+<defs>
+<symbol id="sil" viewBox="0 0 400 800">
+<g fill="#F7F5FB" stroke="#B9B5CC" style="stroke-width: 3; stroke-dasharray: 12 9">
+<path d="M110 170 C100 60 300 60 290 170 C300 260 320 330 300 390 L100 390 C80 330 100 260 110 170 Z"></path>
+<rect x="150" y="700" width="34" height="96" rx="14"></rect>
+<rect x="216" y="700" width="34" height="96" rx="14"></rect>
+<path d="M100 450 L300 450 L350 700 Q200 735 50 700 Z"></path>
+<path d="M118 285 Q200 252 282 285 L300 470 Q200 492 100 470 Z"></path>
+<rect x="182" y="225" width="36" height="48"></rect>
+<ellipse cx="200" cy="160" rx="72" ry="82"></ellipse>
+</g>
+</symbol>
+<symbol id="spk" viewBox="-20 -20 40 40">
+<path d="M0 -18 C2 -3 3 -2 18 0 C3 2 2 3 0 18 C-2 3 -3 2 -18 0 C-3 -2 -2 -3 0 -18 Z"></path>
+</symbol>
+<symbol id="face" viewBox="0 0 80 80">
+<ellipse cx="40" cy="44" rx="22" ry="24" fill="#FFFFFF" stroke="#3D3A55" style="stroke-width: 2.5"></ellipse>
+<path d="M18 40 C16 16 64 16 62 40 C56 30 24 30 18 40 Z" fill="#3D3A55"></path>
+</symbol>
+<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+<circle cx="4" cy="4" r="3" fill="{{pink}}"></circle>
+</pattern>
+<pattern id="dotsB" width="22" height="22" patternUnits="userSpaceOnUse">
+<circle cx="4" cy="4" r="3" fill="{{blue}}"></circle>
+</pattern>
+</defs>
+</svg>
+
+<section id="top" class="kv" style="position: relative; height: 800px; overflow: hidden">
+<svg aria-hidden="true" viewBox="0 0 1280 800" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<rect x="0" y="0" width="360" height="300" fill="url(#dots)" opacity="0.6"></rect>
+<rect x="980" y="560" width="300" height="240" fill="url(#dots)" opacity="0.6"></rect>
+<polygon points="430,0 790,0 610,800 250,800" fill="{{kvMain}}"></polygon>
+<polygon points="790,0 930,0 750,800 610,800" fill="{{kvSub}}"></polygon>
+<polygon points="420,0 436,0 256,800 240,800" fill="{{kvSub}}"></polygon>
+<g fill="{{blue}}"><use href="#spk" x="300" y="140" width="56" height="56" class="tw"></use><use href="#spk" x="1060" y="200" width="40" height="40" class="tw tw2"></use></g>
+<g fill="{{pink}}"><use href="#spk" x="920" y="420" width="48" height="48" class="tw tw2"></use><use href="#spk" x="190" y="520" width="32" height="32" class="tw"></use></g>
+</svg>
+<img class="kv-one bob" src="{{kvImg}}" alt="{{kvAlt}}" style="position: absolute; left: 50%; bottom: 50px; width: 500px; margin-left: -240px">
+<header style="position: relative; max-width: 1200px; margin: 0 auto; padding: 22px 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.04em">VOICEROID POCKET</span>
+<nav class="kv-nav" style="display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.06em">
+<a href="#top" style="padding: 8px 14px; border-radius: 999px; text-decoration: none; background: {{pink}}">TOP</a>
+<a href="#feature" style="padding: 8px 14px; text-decoration: none">FEATURE</a>
+<a href="#character" style="padding: 8px 14px; text-decoration: none">CHARACTER</a>
+<a href="#situation" style="padding: 8px 14px; text-decoration: none">SITUATION</a>
+<a href="#voice" style="padding: 8px 14px; text-decoration: none">VOICE</a>
+<a href="#about" style="padding: 8px 14px; text-decoration: none">ABOUT</a>
+</nav>
+</header>
+<p class="kv-copy" style="position: absolute; right: max(40px, calc(50% - 560px)); top: 120px; margin: 0; writing-mode: vertical-rl; font-size: 34px; font-weight: 900; line-height: 1.6; letter-spacing: 0.12em">
+<span style="background: #FFFFFF; padding: 10px 4px; box-shadow: 4px 4px 0 {{kvMain}}">あなたの毎日に、</span><br>
+<span style="background: #FFFFFF; padding: 10px 4px; box-shadow: 4px 4px 0 {{kvSub}}">推しのいる生活を</span>
+</p>
+<sc-if value="{{badgeCopy}}" hint-placeholder-val="{{ false }}">
+<p class="kv-badge-copy" style="position: absolute; right: max(40px, calc(50% - 560px)); top: 500px; margin: 0; font-weight: 900; font-size: 15px"><span style="padding: 4px 12px; background: #3D3A55; color: #FFFFFF; border-radius: 6px">推しが話しかけてくれる Androidアプリ</span></p>
+</sc-if>
+<div class="kv-lead" style="position: absolute; left: max(24px, calc(50% - 600px)); top: 120px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; width: 360px">
+<sc-if value="{{badgeAbove}}" hint-placeholder-val="{{ true }}">
+<p style="align-self: stretch; margin: 0 0 2px; text-align: center; font-weight: 900; font-size: 15px"><span style="padding: 4px 12px; background: #3D3A55; color: #FFFFFF; border-radius: 6px">推しが話しかけてくれる Androidアプリ</span></p>
+</sc-if>
+<svg viewBox="0 30 440 162" style="width: 100%; overflow: visible" role="img" aria-label="VOICEROID POCKET">
+<rect x="113" y="43" width="220" height="36" rx="18" fill="#3D3A55"></rect>
+<rect x="110" y="40" width="220" height="36" rx="18" fill="{{pink}}" stroke="#3D3A55" style="stroke-width: 3"></rect>
+<text x="220" y="65" class="fr mid" fill="#3D3A55" style="font-size: 19px; font-weight: 700; letter-spacing: 6px">VOICEROID</text>
+<text x="100" y="174" class="fr k" fill="#3D3A55" stroke="#3D3A55" style="font-size: 92px; font-weight: 700; text-anchor: end; stroke-width: 10px">P</text>
+<circle cx="138" cy="142" r="34" fill="#3D3A55"></circle>
+<text x="176" y="174" class="fr k" fill="#3D3A55" stroke="#3D3A55" textLength="228" lengthAdjust="spacingAndGlyphs" style="font-size: 92px; font-weight: 700; stroke-width: 10px">CKET</text>
+<text x="95" y="168" class="fr k" fill="{{pink}}" stroke="#3D3A55" style="font-size: 92px; font-weight: 700; text-anchor: end; stroke-width: 10px">P</text>
+<circle cx="133" cy="136" r="33" fill="{{blue}}" stroke="#3D3A55" style="stroke-width: 5"></circle>
+<g class="wv" fill="#3D3A55"><rect x="112" y="130" width="6" height="12" rx="3"></rect><rect x="121" y="121" width="6" height="30" rx="3"></rect><rect x="130" y="125" width="6" height="22" rx="3"></rect><rect x="139" y="116" width="6" height="40" rx="3"></rect><rect x="148" y="129" width="6" height="14" rx="3"></rect></g>
+<text x="171" y="168" class="fr k" stroke="#3D3A55" textLength="228" lengthAdjust="spacingAndGlyphs" style="font-size: 92px; font-weight: 700; stroke-width: 10px"><tspan fill="{{pink}}">C</tspan><tspan fill="{{blue}}">K</tspan><tspan fill="{{pink}}">E</tspan><tspan fill="{{blue}}">T</tspan></text>
+<path class="tw" d="M410 70 C412 84 413 85 427 87 C413 89 412 90 410 104 C408 90 407 89 393 87 C407 85 408 84 410 70 Z" fill="{{blue}}" stroke="#3D3A55" style="stroke-width: 2.5; stroke-linejoin: round"></path>
+<path class="tw tw2" d="M40 64 C41.5 74 42 74.5 52 76 C42 77.5 41.5 78 40 88 C38.5 78 38 77.5 28 76 C38 74.5 38.5 74 40 64 Z" fill="{{pink}}" stroke="#3D3A55" style="stroke-width: 2.5; stroke-linejoin: round"></path>
+<circle class="tw" cx="372" cy="58" r="5" fill="{{pink}}" stroke="#3D3A55" style="stroke-width: 2"></circle>
+</svg>
+<sc-if value="{{badgeBelow}}" hint-placeholder-val="{{ false }}">
+<p style="align-self: stretch; margin: 6px 0 4px; text-align: center; font-weight: 900; font-size: 15px"><span style="padding: 4px 12px; background: #3D3A55; color: #FFFFFF; border-radius: 6px">推しが話しかけてくれる Androidアプリ</span></p>
+</sc-if>
+<a href="#feature" style="display: inline-flex; align-items: center; min-height: 58px; margin-top: 8px; padding: 0 34px; background: {{kvMain}}; border: 3px solid #3D3A55; border-radius: 999px; box-shadow: 5px 5px 0 #3D3A55; font-size: 18px; font-weight: 900; text-decoration: none">アプリの特徴を見る ›</a>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="#character" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 12px; font-size: 14px; font-weight: 700; text-decoration: none">キャラクター</a>
+<a href="#about" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 12px; font-size: 14px; font-weight: 700; text-decoration: none">このアプリについて</a>
+</div>
+</div>
+</section>
+
+<div aria-hidden="true" style="position: relative; z-index: 2; height: 70px; margin-top: -46px">
+<div style="position: absolute; left: -5%; right: -5%; top: 10px; height: 46px; display: flex; align-items: center; overflow: hidden; white-space: nowrap; background: {{pink}}; border-top: 3px solid #3D3A55; border-bottom: 3px solid #3D3A55; transform: rotate(-2deg)">
+<div class="mq fr" style="font-weight: 700; font-size: 20px; letter-spacing: 0.12em"><span>VOICEROID POCKET</span><span>✦</span><span>KOTONOHA AKANE</span><span>✦</span><span>KOTONOHA AOI</span><span>✦</span><span>VOICEROID POCKET</span><span>✦</span><span>KOTONOHA AKANE</span><span>✦</span><span>KOTONOHA AOI</span><span>✦</span><span>VOICEROID POCKET</span><span>✦</span><span>KOTONOHA AKANE</span><span>✦</span><span>KOTONOHA AOI</span><span>✦</span><span>VOICEROID POCKET</span><span>✦</span><span>KOTONOHA AKANE</span><span>✦</span><span>KOTONOHA AOI</span><span>✦</span></div>
+</div>
+<div style="position: absolute; left: -5%; right: -5%; top: 64px; height: 8px; background: {{blue}}; transform: rotate(-2deg)"></div>
+</div>
+
+<section id="feature" style="position: relative; padding: 90px 0 120px">
+<svg aria-hidden="true" viewBox="0 0 300 260" style="position: absolute; right: 0; top: 40px; width: 300px; height: 260px"><rect width="300" height="260" fill="url(#dotsB)" opacity="0.6"></rect></svg>
+<div class="wrap" style="position: relative; max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px">
+<p class="big-en" style="font-size: clamp(56px, 8vw, 104px); text-shadow: 6px 6px 0 {{pink}}">FEATURE</p>
+<h2 style="margin: 0; padding: 6px 16px; background: #FFFFFF; box-shadow: 0 0 0 2.5px #3D3A55, 5px 5px 0 2.5px {{blue}}; font-size: 22px; font-weight: 900">できること</h2>
+</div>
+
+<div class="feat-row" style="display: flex; align-items: center; gap: 56px">
+<div class="feat-vis" style="position: relative; flex: 0 0 auto; width: min(480px, 100%); height: 600px">
+<div aria-hidden="true" style="position: absolute; left: 6%; top: 0; bottom: 0; width: 70%; background: {{pink}}; clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%)"></div>
+<div aria-hidden="true" style="position: absolute; left: 58%; top: 0; bottom: 0; width: 26%; background: {{blue}}; clip-path: polygon(62% 0, 100% 0, 38% 100%, 0 100%)"></div>
+<svg aria-hidden="true" viewBox="-20 -20 40 40" class="tw" style="position: absolute; left: 4%; top: 60px; width: 44px; height: 44px; fill: {{blue}}"><use href="#spk"></use></svg>
+<div style="position: absolute; left: 50%; top: 18px; width: 260px; height: 563px; margin-left: -130px; padding: 10px; box-sizing: border-box; background: #FFFFFF; border: 4px solid #3D3A55; border-radius: 42px; box-shadow: 8px 8px 0 #3D3A55">
+<div class="shot">ホーム画面の<br>スクリーンショット<span style="font-size: 11px; font-weight: 500">縦長（例：1080×2400）</span></div>
+</div>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; display: flex; align-items: flex-end; gap: 12px"><span class="num" style="font-size: 120px; text-shadow: 6px 6px 0 {{pink}}">01</span><span class="fr" style="padding-bottom: 14px; font-weight: 700; font-size: 16px; letter-spacing: 0.24em">POINT</span></p>
+<h3 style="margin: 0; font-size: clamp(26px, 2.8vw, 36px); font-weight: 900; line-height: 1.5"><span style="background: linear-gradient(transparent 60%, {{pink}} 60%)">サッと開いていつでも会話</span></h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.9; color: #5E5A78">アプリを開くとキャラクターがホーム画面で待っていてくれるから、すぐに会話をスタートできます！タップするとセリフが変わり、1分ごとに自動で次の話題へ。3日以上ぶりに開くと「久しぶり」のセリフで迎えてくれます。</p>
+<p style="margin: 0; display: flex; flex-wrap: wrap; gap: 8px"><span style="padding: 4px 12px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-size: 13px; font-weight: 700">#タップで会話</span><span style="padding: 4px 12px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-size: 13px; font-weight: 700">#久しぶりのお出迎え</span></p>
+</div>
+</div>
+
+<div class="feat-row" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 56px">
+<div class="feat-vis" style="position: relative; flex: 0 0 auto; width: min(480px, 100%); height: 600px">
+<div aria-hidden="true" style="position: absolute; left: 6%; top: 0; bottom: 0; width: 70%; background: {{blue}}; clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%)"></div>
+<div aria-hidden="true" style="position: absolute; left: 58%; top: 0; bottom: 0; width: 26%; background: {{pink}}; clip-path: polygon(62% 0, 100% 0, 38% 100%, 0 100%)"></div>
+<svg aria-hidden="true" viewBox="-20 -20 40 40" class="tw tw2" style="position: absolute; right: 2%; top: 80px; width: 40px; height: 40px; fill: {{pink}}"><use href="#spk"></use></svg>
+<div style="position: absolute; left: 50%; top: 18px; width: 260px; height: 563px; margin-left: -130px; padding: 10px; box-sizing: border-box; background: #FFFFFF; border: 4px solid #3D3A55; border-radius: 42px; box-shadow: 8px 8px 0 #3D3A55">
+<div class="shot">ウィジェットを置いた<br>ホーム画面<span style="font-size: 11px; font-weight: 500">縦長（例：1080×2400）</span></div>
+</div>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; display: flex; align-items: flex-end; gap: 12px"><span class="num" style="font-size: 120px; text-shadow: 6px 6px 0 {{blue}}">02</span><span class="fr" style="padding-bottom: 14px; font-weight: 700; font-size: 16px; letter-spacing: 0.24em">POINT</span></p>
+<h3 style="margin: 0; font-size: clamp(26px, 2.8vw, 36px); font-weight: 900; line-height: 1.5"><span style="background: linear-gradient(transparent 60%, {{blue}} 60%)">ホーム画面でも楽しく会話</span></h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.9; color: #5E5A78">ウィジェットをホーム画面に置けば、アプリを開かなくても会話できます！置くときに表示するキャラを選べて、タップするとセリフが変わり、30分ごとに今の状況に合ったセリフへ切り替わります。</p>
+<p style="margin: 0; display: flex; flex-wrap: wrap; gap: 8px"><span style="padding: 4px 12px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-size: 13px; font-weight: 700">#ウィジェット対応</span><span style="padding: 4px 12px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-size: 13px; font-weight: 700">#30分ごとに更新</span></p>
+</div>
+</div>
+
+<div class="feat-row" style="display: flex; align-items: center; gap: 56px">
+<div class="feat-vis" style="position: relative; flex: 0 0 auto; width: min(480px, 100%); height: 600px">
+<div aria-hidden="true" style="position: absolute; left: 6%; top: 0; bottom: 0; width: 70%; background: {{pink}}; clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%)"></div>
+<div aria-hidden="true" style="position: absolute; left: 58%; top: 0; bottom: 0; width: 26%; background: {{blue}}; clip-path: polygon(62% 0, 100% 0, 38% 100%, 0 100%)"></div>
+<svg aria-hidden="true" viewBox="-20 -20 40 40" class="tw" style="position: absolute; left: 2%; bottom: 70px; width: 36px; height: 36px; fill: {{blue}}"><use href="#spk"></use></svg>
+<div style="position: absolute; left: 50%; top: 18px; width: 260px; height: 563px; margin-left: -130px; padding: 10px; box-sizing: border-box; background: #FFFFFF; border: 4px solid #3D3A55; border-radius: 42px; box-shadow: 8px 8px 0 #3D3A55">
+<div class="shot">通知が届いた<br>画面<span style="font-size: 11px; font-weight: 500">縦長（例：1080×2400）</span></div>
+</div>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; display: flex; align-items: flex-end; gap: 12px"><span class="num" style="font-size: 120px; text-shadow: 6px 6px 0 {{pink}}">03</span><span class="fr" style="padding-bottom: 14px; font-weight: 700; font-size: 16px; letter-spacing: 0.24em">POINT</span></p>
+<h3 style="margin: 0; font-size: clamp(26px, 2.8vw, 36px); font-weight: 900; line-height: 1.5"><span style="background: linear-gradient(transparent 60%, {{pink}} 60%)">朝も夜も、通知で話しかけてくれる</span></h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.9; color: #5E5A78">朝7〜9時台には起こしてくれる通知、深夜0〜3時台には「早く寝て」と怒る通知が、それぞれ1日1回届きます。話しかけてくるキャラは毎回ランダム！</p>
+<p style="margin: 0; display: flex; flex-wrap: wrap; gap: 8px"><span style="padding: 4px 12px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-size: 13px; font-weight: 700">#おはよう通知</span><span style="padding: 4px 12px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-size: 13px; font-weight: 700">#早く寝て通知</span></p>
+</div>
+</div>
+
+<div class="feat-row" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 56px">
+<div class="feat-vis" style="position: relative; flex: 0 0 auto; width: min(480px, 100%); height: 600px">
+<div aria-hidden="true" style="position: absolute; left: 6%; top: 0; bottom: 0; width: 70%; background: {{blue}}; clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%)"></div>
+<div aria-hidden="true" style="position: absolute; left: 58%; top: 0; bottom: 0; width: 26%; background: {{pink}}; clip-path: polygon(62% 0, 100% 0, 38% 100%, 0 100%)"></div>
+<svg aria-hidden="true" viewBox="-20 -20 40 40" class="tw tw2" style="position: absolute; right: 4%; bottom: 90px; width: 38px; height: 38px; fill: {{pink}}"><use href="#spk"></use></svg>
+<div style="position: absolute; left: 50%; top: 18px; width: 260px; height: 563px; margin-left: -130px; padding: 10px; box-sizing: border-box; background: #FFFFFF; border: 4px solid #3D3A55; border-radius: 42px; box-shadow: 8px 8px 0 #3D3A55">
+<div class="shot">キャラ編集画面の<br>スクリーンショット<span style="font-size: 11px; font-weight: 500">縦長（例：1080×2400）</span></div>
+</div>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; display: flex; align-items: flex-end; gap: 12px"><span class="num" style="font-size: 120px; text-shadow: 6px 6px 0 {{blue}}">04</span><span class="fr" style="padding-bottom: 14px; font-weight: 700; font-size: 16px; letter-spacing: 0.24em">POINT</span></p>
+<h3 style="margin: 0; font-size: clamp(26px, 2.8vw, 36px); font-weight: 900; line-height: 1.5"><span style="background: linear-gradient(transparent 60%, {{blue}} 60%)">キャラもセリフも、自分で作れる</span></h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.9; color: #5E5A78">名前やテーマ色、表情の画像、セリフを、アプリ上から自由に追加・編集できます。セリフごとに使う表情や話す状況、ボイスも設定できて、茜・葵は「初期状態に戻す」こともできます。</p>
+<p style="margin: 0; display: flex; flex-wrap: wrap; gap: 8px"><span style="padding: 4px 12px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-size: 13px; font-weight: 700">#キャラを追加</span><span style="padding: 4px 12px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-size: 13px; font-weight: 700">#表情とセリフを編集</span></p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="character" style="position: relative; padding: 110px 0 110px; background: #FFFFFF; background-image: radial-gradient(circle, #ECEAF3 2.5px, transparent 3px); background-size: 24px 24px">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 60px; background: #FFFFFF; clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%)"></div>
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 14px; background: {{pink}}; transform-origin: left top; transform: skewY(-1.4deg) translateY(56px)"></div>
+<div class="wrap" style="position: relative; max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px; text-align: right">
+<p class="big-en" style="font-size: clamp(56px, 8vw, 104px); text-shadow: 6px 6px 0 {{blue}}">CHARACTER</p>
+<h2 style="margin: 0; padding: 6px 16px; background: #FFFFFF; box-shadow: 0 0 0 2.5px #3D3A55, 5px 5px 0 2.5px {{pink}}; font-size: 22px; font-weight: 900">キャラクター紹介</h2>
+</div>
+
+<sc-for list="{{chars}}" as="c" hint-placeholder-count="1">
+<sc-if value="{{c.sel}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px 56px">
+<div class="chara-stage swap" style="position: relative; flex: 1 1 420px; min-width: 0; height: 620px">
+<div aria-hidden="true" style="position: absolute; left: 12%; top: 0; bottom: 0; width: 62%; background: {{c.main}}; clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%)"></div>
+<div aria-hidden="true" style="position: absolute; left: 62%; top: 0; bottom: 0; width: 22%; background: {{c.sub}}; clip-path: polygon(62% 0, 100% 0, 38% 100%, 0 100%)"></div>
+<p aria-hidden="true" class="num" style="position: absolute; left: 0; top: 10px; margin: 0; font-size: 160px; opacity: 0.9">{{c.no}}</p>
+<img class="bob" src="{{c.img}}" alt="{{c.name}}" style="position: absolute; left: 50%; bottom: 40px; width: min(460px, 92%); transform: translateX(-50%)">
+<p style="position: absolute; right: 2%; top: 30px; margin: 0; writing-mode: vertical-rl; padding: 16px 8px; background: #FFFFFF; border: 3px solid #3D3A55; border-radius: 10px; box-shadow: 5px 5px 0 {{c.main}}, 5px 5px 0 3px #3D3A55; font-size: 22px; font-weight: 900; letter-spacing: 0.16em">{{c.name}}</p>
+</div>
+<div class="swap" style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<p class="fr" style="margin: 0; font-weight: 700; font-size: 15px; letter-spacing: 0.26em">{{c.en}}</p>
+<h3 style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; font-size: clamp(32px, 3.6vw, 46px); font-weight: 900; line-height: 1.3">{{c.name}}<span style="font-size: 16px; font-weight: 700; color: #5E5A78">{{c.kana}}</span></h3>
+<p style="margin: 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+<span style="display: inline-flex; align-items: stretch; border: 2px solid #3D3A55; border-radius: 999px; overflow: hidden; background: #FFFFFF"><span style="padding: 5px 12px; background: {{c.main}}; font-size: 12px; font-weight: 900">VOICE</span><span style="padding: 5px 14px; font-size: 14px; font-weight: 700">{{c.cv}}</span></span>
+<span style="font-size: 14px; font-weight: 700; color: #5E5A78">{{c.role}}</span>
+</p>
+<p style="margin: 6px 0 0; padding: 16px 20px; background: #FFFFFF; box-shadow: 0 0 0 2.5px #3D3A55, 6px 6px 0 2.5px {{c.sub}}; font-size: 19px; font-weight: 900; line-height: 1.6">「{{c.quote}}」</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.9; color: #5E5A78">{{c.prof}}</p>
+<a href="#" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; background: #FFFFFF; border: 2.5px solid #3D3A55; border-radius: 999px; font-weight: 900; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18"><path d="M3 7 H6 L10 3 V15 L6 11 H3 Z" fill="{{c.main}}" stroke="#3D3A55" style="stroke-width: 1.8; stroke-linejoin: round"></path><path d="M12.5 6 Q14.5 9 12.5 12" fill="none" stroke="#3D3A55" style="stroke-width: 1.8; stroke-linecap: round"></path></svg>ボイスを聞く</a>
+</div>
+</div>
+</sc-if>
+</sc-for>
+
+<div role="group" aria-label="キャラクターを選ぶ" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px">
+<button type="button" onClick="{{prev}}" aria-label="前のキャラクター" style="width: 48px; height: 48px; border: 2.5px solid #3D3A55; border-radius: 50%; background: #FFFFFF; color: #3D3A55; font-size: 20px; font-weight: 900; cursor: pointer">‹</button>
+<sc-for list="{{chars}}" as="c" hint-placeholder-count="4">
+<button type="button" class="thumb" onClick="{{c.pick}}" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" style="background: {{c.main}}; box-shadow: {{c.shadow}}; transform: {{c.lift}}">
+<img src="{{c.img}}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 14%">
+<span style="position: relative; padding: 0 8px; background: #FFFFFF; border-radius: 999px; border: 2px solid #3D3A55; font-size: 12px">{{c.no}}</span>
+</button>
+</sc-for>
+<span style="display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; width: 96px; height: 96px; box-sizing: border-box; border: 2.5px dashed #3D3A55; border-radius: 20px; background: #FFFFFF; font-size: 11px; font-weight: 700; line-height: 1.4; text-align: center"><span aria-hidden="true" style="font-size: 26px; font-weight: 900; line-height: 1">＋</span>キャラを<br>追加できる</span>
+<button type="button" onClick="{{next}}" aria-label="次のキャラクター" style="width: 48px; height: 48px; border: 2.5px solid #3D3A55; border-radius: 50%; background: #FFFFFF; color: #3D3A55; font-size: 20px; font-weight: 900; cursor: pointer">›</button>
+</div>
+<p style="margin: -16px 0 0; text-align: center; font-size: 13px; line-height: 1.8; color: #5E5A78">キャラは自由に追加できます。茜・葵を削除しても、ホーム画面の「茜・葵を呼び戻す」で戻せます。</p>
+</div>
+</section>
+
+<section id="situation" style="position: relative; padding: 110px 0 110px">
+<svg aria-hidden="true" viewBox="0 0 300 260" style="position: absolute; left: 0; top: 30px; width: 300px; height: 260px"><rect width="300" height="260" fill="url(#dots)" opacity="0.5"></rect></svg>
+<div class="wrap" style="position: relative; max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px">
+<p class="big-en" style="font-size: clamp(56px, 8vw, 104px); text-shadow: 6px 6px 0 {{pink}}">SITUATION</p>
+<h2 style="margin: 0; padding: 6px 16px; background: #FFFFFF; box-shadow: 0 0 0 2.5px #3D3A55, 5px 5px 0 2.5px {{blue}}; font-size: 22px; font-weight: 900">話す状況でセリフが変わる</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 720px">
+<h3 style="margin: 0; font-size: clamp(24px, 2.6vw, 32px); font-weight: 900; line-height: 1.5"><span style="background: linear-gradient(transparent 60%, {{pink}} 60%)">キャラクターによる多種多様な言葉</span></h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.9; color: #5E5A78">セリフごとに「いつ話すか」を選べます。特定の時間帯や曜日、記念日にしか話さない会話も？ 茜・葵には、曜日・お正月・クリスマス・充電・電池・久しぶりのセリフが最初から入っています。</p>
+</div>
+<div class="sit-grid">
+<div class="sit-card">
+<span class="sit-ic" style="background: {{pink}}"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"></path></svg></span>
+<p class="sit-name">いつでも</p>
+<p class="sit-when">普段のセリフ。タップしたときなどに話します。</p>
+</div>
+<div class="sit-card">
+<span class="sit-ic" style="background: {{blue}}"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg></span>
+<p class="sit-name">時間帯</p>
+<p class="sit-when">朝 5〜9時／昼 10〜16時／夕方 17〜21時／夜 22〜23時／深夜 0〜4時</p>
+</div>
+<div class="sit-card">
+<span class="sit-ic" style="background: {{pink}}"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg></span>
+<p class="sit-name">曜日</p>
+<p class="sit-when">選んだ曜日に。いくつでも選べて、「平日」「週末」もワンタッチ。</p>
+</div>
+<div class="sit-card">
+<span class="sit-ic" style="background: {{blue}}"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1.5"></rect><path d="M3 9h18M12 9v11M12 9c-1.5-4-5.5-4-5.5-1.5S10 9 12 9zM12 9c1.5-4 5.5-4 5.5-1.5S14 9 12 9z"></path></svg></span>
+<p class="sit-name">記念日</p>
+<p class="sit-when">毎年その日に。月・日と、記念日の名前を設定します。</p>
+</div>
+<div class="sit-card">
+<span class="sit-ic" style="background: {{pink}}"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 3L6 13h5l-1 8 7-10h-5z"></path></svg></span>
+<p class="sit-name">充電中</p>
+<p class="sit-when">充電しているときに話します。</p>
+</div>
+<div class="sit-card">
+<span class="sit-ic" style="background: {{blue}}"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="7.5" width="16" height="9" rx="2"></rect><path d="M21 10.5v3M6.5 10.5v3"></path></svg></span>
+<p class="sit-name">電池が少ない</p>
+<p class="sit-when">充電していなくて、残り15%以下のとき。</p>
+</div>
+<div class="sit-card">
+<span class="sit-ic" style="background: {{pink}}"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"></path></svg></span>
+<p class="sit-name">久しぶり</p>
+<p class="sit-when">3日以上ぶりにアプリを開いたとき。最初の1回だけ。</p>
+</div>
+<div class="sit-card" style="background: #3D3A55; color: #FFFFFF; box-shadow: 5px 5px 0 {{blue}}">
+<p class="fr" style="margin: 0; font-weight: 700; font-size: 13px; letter-spacing: 0.2em; color: {{pink}}">HOW IT PICKS</p>
+<p class="sit-name" style="margin: 0">どれを話す？</p>
+<p class="sit-when" style="color: #D5D2E3">「久しぶり」→「記念日」の順に優先。ほかは今当てはまる条件のセリフから選び、なければ普段のセリフを話します。</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="voice" style="position: relative; padding: 110px 0 120px; background-image: radial-gradient(circle, #ECEAF3 2.5px, transparent 3px); background-size: 24px 24px">
+<div class="wrap" style="position: relative; max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px; text-align: right">
+<p class="big-en" style="font-size: clamp(56px, 8vw, 104px); text-shadow: 6px 6px 0 {{blue}}">VOICE</p>
+<h2 style="margin: 0; padding: 6px 16px; background: #FFFFFF; box-shadow: 0 0 0 2.5px #3D3A55, 5px 5px 0 2.5px {{pink}}; font-size: 22px; font-weight: 900">ボイスで、声でも話す</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px 56px">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<h3 style="margin: 0; font-size: clamp(24px, 2.6vw, 32px); font-weight: 900; line-height: 1.5"><span style="background: linear-gradient(transparent 60%, {{blue}} 60%)">セリフごとにボイスを付けられる</span></h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.9; color: #5E5A78">キャラをタップしてセリフが変わると、ボイスが鳴ります。吹き出しのスピーカーボタンでもう一度聞けて、ウィジェットをタップしたときも鳴ります。ホーム画面の「ボイス オン/オフ」で自動再生を切り替えられます。</p>
+<p style="margin: 0; display: flex; flex-wrap: wrap; gap: 8px"><span style="padding: 4px 12px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-size: 13px; font-weight: 700">#WAVE</span><span style="padding: 4px 12px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-size: 13px; font-weight: 700">#MP3</span><span style="padding: 4px 12px; background: #FFFFFF; border: 2px solid #3D3A55; border-radius: 999px; font-size: 13px; font-weight: 700">#A.I.VOICE対応</span></p>
+<div style="margin-top: 14px; padding: 34px 24px 22px; background: #FFFFFF; border: 3px solid #3D3A55; border-radius: 28px; box-shadow: 8px 8px 0 #3D3A55; display: flex; flex-direction: column; gap: 20px">
+<div style="position: relative; padding: 22px 20px 16px; background: #FFFFFF; border: 3px solid #3D3A55; border-radius: 20px; box-shadow: 5px 5px 0 {{pink}}; display: flex; align-items: center; gap: 14px">
+<span style="position: absolute; left: 16px; top: -16px; padding: 3px 12px; background: {{pink}}; border: 2.5px solid #3D3A55; border-radius: 8px; font-size: 13px; font-weight: 900">琴葉 茜</span>
+<p style="flex: 1; margin: 0; font-size: 16px; font-weight: 700; line-height: 1.7">[茜のセリフがここに入ります]</p>
+<span role="img" aria-label="もう一度聞くボタン" style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 2.5px solid #3D3A55; border-radius: 50%; background: {{blue}}"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 18 18"><path d="M3 7 H6 L10 3 V15 L6 11 H3 Z" fill="#FFFFFF" stroke="#3D3A55" style="stroke-width: 1.8; stroke-linejoin: round"></path><path d="M12.5 6 Q14.5 9 12.5 12" fill="none" stroke="#3D3A55" style="stroke-width: 1.8; stroke-linecap: round"></path></svg></span>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 900"><svg aria-hidden="true" viewBox="0 0 48 30" style="width: 40px; height: 25px"><g class="wv" fill="#3D3A55"><rect x="4" y="11" width="5" height="8" rx="2.5"></rect><rect x="13" y="5" width="5" height="20" rx="2.5"></rect><rect x="22" y="8" width="5" height="14" rx="2.5"></rect><rect x="31" y="2" width="5" height="26" rx="2.5"></rect><rect x="40" y="10" width="5" height="10" rx="2.5"></rect></g></svg>ボイス</span>
+<span role="img" aria-label="ボイス オン" style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 4px 4px 14px; background: {{pink}}; border: 2.5px solid #3D3A55; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 14px">ON<span style="width: 26px; height: 26px; border-radius: 50%; background: #FFFFFF; border: 2.5px solid #3D3A55"></span></span>
+</div>
+</div>
+</div>
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0 0 4px; font-size: clamp(22px, 2.4vw, 28px); font-weight: 900; line-height: 1.5">A.I.VOICE で、まとめて作れる</h3>
+<div class="step"><span class="step-no" style="background: {{pink}}">1</span><div><p class="step-t">リストを書き出す</p><p class="step-d">編集画面の「VOICE」→「A.I.VOICE用のリストを書き出す」で、セリフを <span class="cd">##</span> でつないだテキストができます。ボイスがないセリフだけ、も選べます。</p></div></div>
+<div class="step"><span class="step-no" style="background: {{blue}}">2</span><div><p class="step-t">A.I.VOICE Editor で音声保存</p><p class="step-d">「テキストを開く」で読み込み、区切り文字列 <span class="cd">##</span>・ファイル命名規則 <span class="cd">{Number}</span> で保存。テキストファイルも一緒に保存します。</p></div></div>
+<div class="step"><span class="step-no" style="background: {{pink}}">3</span><div><p class="step-t">スマホに読み込む</p><p class="step-d">できたフォルダをスマホにコピーし、「ボイスのフォルダを読み込む」で選ぶと、セリフと自動で対応づけられます。</p></div></div>
+<div class="step"><span class="step-no" style="background: {{blue}}">4</span><div><p class="step-t">「保存する」で完了</p><p class="step-d">セリフにボイスが付いたのを確かめて、保存すれば完成です。</p></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="about" style="position: relative; overflow: hidden; padding: 100px 0">
+<svg aria-hidden="true" viewBox="0 0 1280 420" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<rect width="1280" height="420" fill="{{pink}}"></rect>
+<polygon points="0,0 380,0 240,420 0,420" fill="{{blue}}"></polygon>
+<polygon points="380,0 410,0 270,420 240,420" fill="#FFFFFF"></polygon>
+<polygon points="1000,0 1280,0 1280,420 860,420" fill="{{blue}}"></polygon>
+<polygon points="970,0 1000,0 860,420 830,420" fill="#FFFFFF"></polygon>
+<g fill="#FFFFFF"><use href="#spk" x="160" y="70" width="44" height="44" class="tw"></use><use href="#spk" x="1100" y="290" width="52" height="52" class="tw tw2"></use></g>
+</svg>
+<div class="wrap" style="position: relative; max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; display: flex; justify-content: center">
+<div style="position: relative; width: min(720px, 100%); padding: 36px 36px 32px; box-sizing: border-box; background: #FFFFFF; border: 3px solid #3D3A55; border-radius: 28px; box-shadow: 8px 8px 0 #3D3A55; display: flex; flex-direction: column; gap: 18px">
+<img src="/_blob/269ca41d1d415b5c9534a88d0561bb20" alt="" class="bob" style="position: absolute; left: -70px; bottom: -30px; width: 130px">
+<img src="/_blob/4f5923eb0c64c0b9c72c6f9c640d6c8d" alt="" class="bob b2" style="position: absolute; right: -66px; top: -50px; width: 124px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<p class="fr" style="margin: 0; font-weight: 700; font-size: 14px; letter-spacing: 0.26em">ABOUT</p>
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 900">このアプリについて</h2>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.9; color: #5E5A78">琴葉茜・琴葉葵をはじめとするキャラクターが、ホーム画面のウィジェット・アプリ画面・通知で話しかけてくれる Android アプリです。キャラクターや表情、セリフはアプリ上から自由に追加・編集できます。</p>
+<dl style="margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px 18px; padding: 16px 20px; background: #F7F5FB; border-radius: 16px; font-size: 14px">
+<dt style="font-weight: 900">制作</dt><dd style="margin: 0">ﾜﾀｸﾞﾓ</dd>
+<dt style="font-weight: 900">対応OS</dt><dd style="margin: 0">Android 13 以上</dd>
+<dt style="font-weight: 900">登場キャラクター</dt><dd style="margin: 0">琴葉 茜・琴葉 葵（キャラは自由に追加できます）</dd>
+<dt style="font-weight: 900">ボイス</dt><dd style="margin: 0">WAVE・MP3 など（A.I.VOICE 用のリスト書き出しに対応）</dd>
+</dl>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+<a href="#" style="display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 28px; background: {{pink}}; border: 3px solid #3D3A55; border-radius: 999px; box-shadow: 0 5px 0 #3D3A55; font-size: 16px; font-weight: 900; text-decoration: none"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" style="fill: none; stroke: #3D3A55; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round"><path d="M8 6 L2 12 L8 18 M16 6 L22 12 L16 18 M14 4 L10 20"></path></svg>GitHub でアプリを見る</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer style="background: #3D3A55; color: #FFFFFF; padding: 40px 0 32px">
+<div class="wrap" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
+<span style="display: inline-flex; align-items: center; gap: 10px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.04em; color: {{pink}}">VOICEROID POCKET</span>
+<nav style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; font-size: 13px; font-weight: 700">
+<a href="#feature" style="color: #FFFFFF; text-decoration: none">アプリの特徴</a>
+<a href="#character" style="color: #FFFFFF; text-decoration: none">キャラクター</a>
+<a href="#situation" style="color: #FFFFFF; text-decoration: none">話す状況</a>
+<a href="#voice" style="color: #FFFFFF; text-decoration: none">ボイス</a>
+<a href="#about" style="color: #FFFFFF; text-decoration: none">このアプリについて</a>
+</nav>
+<p style="margin: 0; font-size: 12px; line-height: 1.8; color: #D5D2E3">「VOICEROID」は株式会社AHSの商標です。[キャラクターの権利表記（公式ガイドラインに沿って記載）]<br>フォント：Zen Maru Gothic、Fredoka（SIL Open Font License 1.1）<br>© ﾜﾀｸﾞﾓ</p>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"badgePos":{"editor":"enum","options":["ロゴの上","ロゴの下","キャッチコピーの下"],"default":"ロゴの上"},"kvChara":{"editor":"enum","options":["琴葉 茜","琴葉 葵"],"default":"琴葉 茜"},"pink":{"editor":"color","default":"#FFB3BE"},"blue":{"editor":"color","default":"#B3E4FF"},"$preview":{"width":1280,"height":7800}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { idx: 0 };
+}
+renderVals() {
+const pink = this.props.pink ?? '#FFB3BE';
+const blue = this.props.blue ?? '#B3E4FF';
+const base = [
+{ en: 'KOTONOHA AKANE', name: '琴葉 茜', kana: 'ことのは あかね', img: '/_blob/269ca41d1d415b5c9534a88d0561bb20', cv: 'A.I.VOICE 対応', role: '琴葉姉妹の姉', quote: '[茜のセリフ・ひとこと]', prof: '関西弁で話す、元気いっぱいのお姉ちゃん。曜日・お正月・クリスマス・充電・電池・久しぶりのセリフが、最初から入っています。' },
+{ en: 'KOTONOHA AOI', name: '琴葉 葵', kana: 'ことのは あおい', img: '/_blob/4f5923eb0c64c0b9c72c6f9c640d6c8d', cv: 'A.I.VOICE 対応', role: '琴葉姉妹の妹', quote: '何か用ですか？…呼んでみただけ、ですか。', prof: '標準語で話す、しっかり者の妹。茜と同じく、曜日・お正月・クリスマス・充電・電池・久しぶりのセリフが最初から入っています。' }
+];
+const n = base.length;
+const idx = this.state.idx;
+const chars = base.map((c, i) => {
+const sel = i === idx;
+return {
+...c,
+no: String(i + 1).padStart(2, '0'),
+main: i % 2 === 0 ? pink : blue,
+sub: i % 2 === 0 ? blue : pink,
+sel: sel,
+pressed: sel ? 'true' : 'false',
+shadow: sel ? '4px 4px 0 #3D3A55' : 'none',
+lift: sel ? 'translateY(-4px)' : 'none',
+pick: () => this.setState({ idx: i })
+};
+});
+const kvAoi = this.props.kvChara === '琴葉 葵';
+const bp = this.props.badgePos ?? 'ロゴの上';
+return {
+badgeAbove: bp === 'ロゴの上',
+badgeBelow: bp === 'ロゴの下',
+badgeCopy: bp === 'キャッチコピーの下',
+pink, blue, chars,
+kvImg: kvAoi ? '/_blob/4f5923eb0c64c0b9c72c6f9c640d6c8d' : '/_blob/269ca41d1d415b5c9534a88d0561bb20',
+kvAlt: kvAoi ? '琴葉 葵' : '琴葉 茜',
+kvMain: kvAoi ? blue : pink,
+kvSub: kvAoi ? pink : blue,
+prev: () => this.setState({ idx: (idx - 1 + n) % n }),
+next: () => this.setState({ idx: (idx + 1) % n })
+};
+}
+}
+</script>
+</body>
+</html>
