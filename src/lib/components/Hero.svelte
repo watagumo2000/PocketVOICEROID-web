@@ -40,7 +40,7 @@
   />
 
   <p class="absolute top-120 right-[max(40px,calc(50%_-_560px))] writing-vertical text-catch max-sm:hidden">
-    <span class={[catchLine, 'shadow-[4px_4px_0_var(--color-pink)]']}>あなたの毎日に、</span><br />
+    <span class={[catchLine, 'shadow-[4px_4px_0_var(--color-pink)]']}>毎日に、</span><br />
     <span class={[catchLine, 'shadow-[4px_4px_0_var(--color-blue)]']}>推しのいる生活を</span>
   </p>
 
