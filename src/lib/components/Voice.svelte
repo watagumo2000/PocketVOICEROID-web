@@ -43,7 +43,7 @@
   ]
 </script>
 
-<section id="voice" class="relative pt-110 pb-120 dots-line">
+<section id="voice" class="relative pt-110 pb-120 dots-line max-sm:py-56">
   <div class={[wrap, 'flex flex-col gap-40']}>
     <SectionTitle en="VOICE" ja="ボイスで、声でも話す" alt end />
 

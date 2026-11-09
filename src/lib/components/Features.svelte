@@ -17,7 +17,7 @@
   ]
 </script>
 
-<section id="feature" class="relative pt-90 pb-120">
+<section id="feature" class="relative pt-90 pb-120 max-sm:py-56">
   <div aria-hidden="true" class="absolute right-0 top-40 h-260 w-300 dots-blue opacity-60"></div>
 
   <div class={[wrap, 'flex flex-col gap-56']}>
@@ -27,7 +27,7 @@
       {@const tone = toneAt(i)}
       <div
         class={[
-          'flex items-center gap-56 max-md:flex-col max-md:items-stretch max-md:gap-20',
+          'flex items-center gap-56 max-md:flex-col max-md:gap-20',
           i % 2 === 1 && 'flex-row-reverse',
         ]}
       >
@@ -42,7 +42,8 @@
           </div>
         </div>
 
-        <div class="flex min-w-0 flex-[1_1_320px] flex-col gap-18 max-md:flex-none">
+        <!-- 縦に積むときは、1行が長くなりすぎないように幅を 560px までにして中央にそろえる -->
+        <div class="flex min-w-0 flex-[1_1_320px] flex-col gap-18 max-md:w-full max-md:max-w-560 max-md:flex-none">
           <p class="flex items-end gap-12">
             <span class={[outlined, 'text-number', textShadowPop[tone]]}>{String(i + 1).padStart(2, '0')}</span>
             <small class="pb-14 font-display text-[16px] font-bold leading-none tracking-[0.24em]">POINT</small>

@@ -24,11 +24,10 @@
     blue: 'shadow-[5px_5px_0_var(--color-blue),5px_5px_0_3px_var(--color-ink)]',
   }
   // ‹ › の丸ボタン
-  const arrow =
-    'size-48 rounded-full border-mid border-ink bg-surface text-[20px] font-black cursor-pointer max-xs:size-44'
+  const arrow = 'size-48 rounded-full border-mid border-ink bg-surface text-[20px] font-black cursor-pointer'
 </script>
 
-<section id="character" class="relative py-110 bg-surface dots-line">
+<section id="character" class="relative py-110 bg-surface dots-line max-sm:py-56">
   <!-- 上端の斜めの切り替え（白い三角＋ピンクの細い帯） -->
   <div aria-hidden="true" class="absolute inset-x-0 top-0 h-60 bg-surface [clip-path:polygon(0_0,100%_0,100%_0,0_100%)]"></div>
   <div aria-hidden="true" class="absolute inset-x-0 top-0 h-14 bg-pink origin-top-left [transform:skewY(-1.4deg)_translateY(56px)]"></div>
@@ -85,7 +84,7 @@
       {/key}
     </div>
 
-    <!-- 480px 以下は ‹ サムネイル2つ ＋ › が1行に収まるように小さくする -->
+    <!-- 480px 以下は「追加できる」の枠を隠して（下の説明文と同じ内容）、‹ サムネイル › を1行に収める -->
     <div role="group" aria-label="キャラクターを選ぶ" class="flex flex-wrap items-center justify-center gap-14 max-xs:gap-8">
       <button type="button" class={arrow} aria-label="前のキャラクター" onclick={prev}>‹</button>
       {#each characters as ch, i (ch.name)}
@@ -96,7 +95,7 @@
           aria-pressed={i === idx}
           onclick={() => (idx = i)}
           class={[
-            'relative flex size-96 items-end justify-center overflow-hidden pb-6 border-bold border-ink rounded-xl cursor-pointer max-xs:size-72',
+            'relative flex size-96 items-end justify-center overflow-hidden pb-6 border-bold border-ink rounded-xl cursor-pointer',
             'transition-[translate,box-shadow] duration-150 not-aria-pressed:hover:-translate-y-3 aria-pressed:-translate-y-4 aria-pressed:shadow-thumb',
             bg[toneAt(i)],
           ]}
@@ -108,9 +107,9 @@
         </button>
       {/each}
       <span
-        class="inline-flex size-96 flex-col items-center justify-center gap-2 bg-surface border-mid border-dashed border-ink rounded-xl text-center text-caption font-bold leading-[1.4] max-xs:size-72"
+        class="inline-flex size-96 flex-col items-center justify-center gap-2 bg-surface border-mid border-dashed border-ink rounded-xl text-center text-caption font-bold leading-[1.4] max-xs:hidden"
       >
-        <span aria-hidden="true" class="text-[26px] font-black leading-none max-xs:text-[20px]">＋</span>キャラを<br />追加できる
+        <span aria-hidden="true" class="text-[26px] font-black leading-none">＋</span>キャラを<br />追加できる
       </span>
       <button type="button" class={arrow} aria-label="次のキャラクター" onclick={next}>›</button>
     </div>

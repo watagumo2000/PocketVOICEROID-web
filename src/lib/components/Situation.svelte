@@ -29,7 +29,7 @@
   </svg>
 {/snippet}
 
-<section id="situation" class="relative py-110">
+<section id="situation" class="relative py-110 max-sm:py-56">
   <div aria-hidden="true" class="absolute left-0 top-30 h-260 w-300 dots-pink opacity-50"></div>
 
   <div class={[wrap, 'flex flex-col gap-40']}>
@@ -47,12 +47,17 @@
 
     <ul class="grid grid-cols-4 gap-20 max-md:grid-cols-2 max-xs:grid-cols-1">
       {#each situations as s, i (s.name)}
-        <li class={[card, 'bg-surface shadow-pop']}>
-          <span class={['inline-flex size-48 items-center justify-center rounded-full border-mid border-ink', bg[toneAt(i)]]}>
+        <!-- 480px 以下はアイコンを左に置いた横長のカードにして、縦の長さを抑える -->
+        <li class={[card, 'bg-surface shadow-pop max-xs:flex-row max-xs:gap-14 max-xs:py-16']}>
+          <span
+            class={['inline-flex size-48 shrink-0 items-center justify-center rounded-full border-mid border-ink', bg[toneAt(i)]]}
+          >
             {@render icon(s.icon)}
           </span>
-          <p class="mt-4 text-[20px] font-black">{s.name}</p>
-          <p class="text-[14px] leading-[1.7] text-ink-muted">{s.when}</p>
+          <div class="flex flex-col gap-8 max-xs:gap-2">
+            <p class="mt-4 text-[20px] font-black max-xs:mt-0 max-xs:text-[18px]">{s.name}</p>
+            <p class="text-[14px] leading-[1.7] text-ink-muted">{s.when}</p>
+          </div>
         </li>
       {/each}
       <li class={[card, 'bg-ink text-on-ink shadow-[5px_5px_0_var(--color-blue)]']}>

@@ -2,9 +2,16 @@
   // ABOUT：斜め帯の上に白いカード（Card＋情報リスト）。左下に茜、右上に葵。
   import { author, images, placeholders } from '../data'
   import { button, wrap } from '../ui'
+
+  const info = [
+    ['制作', author],
+    ['対応OS', 'Android 13 以上'],
+    ['登場キャラクター', '琴葉 茜・琴葉 葵（キャラは自由に追加できます）'],
+    ['ボイス', 'WAVE・MP3 など（A.I.VOICE 用のリスト書き出しに対応）'],
+  ]
 </script>
 
-<section id="about" class="relative overflow-hidden py-100">
+<section id="about" class="relative overflow-hidden py-100 max-sm:py-80">
   <svg aria-hidden="true" viewBox="0 0 1280 420" preserveAspectRatio="xMidYMid slice" class="absolute inset-0 size-full">
     <rect width="1280" height="420" class="fill-pink" />
     <polygon points="0,0 380,0 240,420 0,420" class="fill-blue" />
@@ -41,11 +48,14 @@
         琴葉茜・琴葉葵をはじめとするキャラクターが、ホーム画面のウィジェット・アプリ画面・通知で話しかけてくれる
         Android アプリです。キャラクターや表情、セリフはアプリ上から自由に追加・編集できます。
       </p>
-      <dl class="grid grid-cols-[auto_minmax(0,1fr)] gap-x-18 gap-y-10 py-16 px-20 bg-surface-soft rounded-lg text-[14px] leading-[1.5]">
-        <dt class="font-black">制作</dt><dd>{author}</dd>
-        <dt class="font-black">対応OS</dt><dd>Android 13 以上</dd>
-        <dt class="font-black">登場キャラクター</dt><dd>琴葉 茜・琴葉 葵（キャラは自由に追加できます）</dd>
-        <dt class="font-black">ボイス</dt><dd>WAVE・MP3 など（A.I.VOICE 用のリスト書き出しに対応）</dd>
+      <!-- 480px 以下は項目名と値を縦に積む（項目名の列が幅を取って値が細くなるのを防ぐ） -->
+      <dl
+        class="grid grid-cols-[auto_minmax(0,1fr)] gap-x-18 gap-y-10 py-16 px-20 bg-surface-soft rounded-lg text-[14px] leading-[1.5] max-xs:grid-cols-1 max-xs:gap-y-2"
+      >
+        {#each info as [term, desc] (term)}
+          <dt class="font-black max-xs:not-first:mt-10">{term}</dt>
+          <dd>{desc}</dd>
+        {/each}
       </dl>
       <div class="flex flex-wrap justify-center gap-12">
         <!-- リンク先は未定（仮置き） -->
