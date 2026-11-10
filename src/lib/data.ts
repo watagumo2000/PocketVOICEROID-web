@@ -73,6 +73,9 @@ export interface Character {
   prof: string
 }
 
+// 茜のセリフ。キャラ紹介の枠と VOICE の吹き出しの2か所で同じものを使う
+const akaneLine = '琴葉茜や！よろしくやで！'
+
 export const characters: Character[] = [
   {
     en: 'KOTONOHA AKANE',
@@ -81,7 +84,7 @@ export const characters: Character[] = [
     img: akaneImg,
     cv: 'A.I.VOICE 対応',
     role: '琴葉姉妹の姉',
-    quote: '[茜のセリフ・ひとこと]',
+    quote: akaneLine,
     prof: '関西弁で話す、元気いっぱいのお姉ちゃん。曜日・お正月・クリスマス・充電・電池・久しぶりのセリフが、最初から入っています。',
   },
   {
@@ -109,7 +112,7 @@ export const situations: { icon: SituationIcon; name: string; when: string }[] =
 ]
 
 export const placeholders = {
-  akaneVoiceLine: '琴葉茜や！よろしくやで！',
+  akaneVoiceLine: akaneLine,
   characterRights: 'https://aivoice.jp/character/kotonoha/',
   githubUrl: 'https://github.com/watagumo2000/PocketVOICEROID',
 }
