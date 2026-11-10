@@ -1,0 +1,96 @@
+<!doctype html>
+<!--
+  SNS で共有したときに出る画像（public/ogp.png、1200×630）の元。
+  作り直すときは、プロジェクトのルートで次を実行する（Chromium と ImageMagick を使う）：
+
+    chromium --headless=new --hide-scrollbars --window-size=1200,630 \
+      --virtual-time-budget=5000 --force-prefers-reduced-motion \
+      --screenshot=public/ogp.png "file://$PWD/tools/ogp.html"
+    magick public/ogp.png -strip -define png:compression-level=9 public/ogp.png
+
+  色・文字・形はデザインシステム（design-ref/tokens.json）の値。ロゴは Logo.svelte と同じ。
+-->
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>OGP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Zen+Maru+Gothic:wght@700;900&display=block" rel="stylesheet">
+<style>
+  :root {
+    --surface: #ffffff; --pink: #ffb3be; --blue: #b3e4ff; --ink: #3d3a55; --on-ink: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden; background: var(--surface); color: var(--ink); font-family: "Zen Maru Gothic", sans-serif; }
+  .stage { position: relative; width: 1200px; height: 630px; overflow: hidden; }
+  .bg { position: absolute; inset: 0; }
+  .chara { position: absolute; }
+  .akane { left: 560px; bottom: 70px; width: 420px; }
+  .aoi { right: 20px; bottom: 90px; width: 290px; }
+  .lead { position: absolute; left: 64px; top: 70px; width: 440px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .badge { padding: 6px 16px; background: var(--ink); color: var(--on-ink); border-radius: 6px; font-weight: 900; font-size: 22px; line-height: 1.4; }
+  .logo { width: 100%; overflow: visible; }
+  .k { font: 700 92px "Fredoka", sans-serif; stroke: var(--ink); stroke-width: 10px; paint-order: stroke fill; stroke-linejoin: round; }
+  .catch { text-align: center; font-weight: 900; font-size: 34px; line-height: 1.7; letter-spacing: 0.12em; }
+  .catch span { background: var(--surface); padding: 2px 10px; }
+  .tape { position: absolute; left: -40px; right: -40px; bottom: 26px; height: 52px; display: flex; align-items: center; gap: 1.2em; white-space: nowrap; overflow: hidden; background: var(--pink); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); transform: rotate(-2deg); font: 700 24px/1 "Fredoka", sans-serif; letter-spacing: 0.12em; padding-left: 40px; }
+  .line { position: absolute; left: -40px; right: -40px; bottom: 14px; height: 9px; background: var(--blue); transform: rotate(-2deg); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <svg class="bg" viewBox="0 0 1200 630" aria-hidden="true">
+    <defs>
+      <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="3" fill="#ffb3be"/></pattern>
+      <path id="spk" d="M0 -18 C2 -3 3 -2 18 0 C3 2 2 3 0 18 C-2 3 -3 2 -18 0 C-3 -2 -2 -3 0 -18 Z"/>
+    </defs>
+    <rect x="0" y="0" width="300" height="230" fill="url(#dots)" opacity="0.6"/>
+    <rect x="960" y="0" width="240" height="200" fill="url(#dots)" opacity="0.6"/>
+    <!-- 斜め2色の帯（上辺が右にずれる向き） -->
+    <polygon points="700,0 1010,0 850,630 540,630" fill="#ffb3be"/>
+    <polygon points="1010,0 1130,0 970,630 850,630" fill="#b3e4ff"/>
+    <polygon points="688,0 702,0 542,630 528,630" fill="#b3e4ff"/>
+    <use href="#spk" transform="translate(560 120) scale(1.4)" fill="#b3e4ff"/>
+    <use href="#spk" transform="translate(1130 300) scale(1.1)" fill="#ffb3be"/>
+    <use href="#spk" transform="translate(1000 470) scale(0.8)" fill="#b3e4ff"/>
+  </svg>
+
+  <img class="chara aoi" src="../src/lib/images/aoi.webp" alt="">
+  <img class="chara akane" src="../src/lib/images/akane.webp" alt="">
+
+  <div class="lead">
+    <p class="badge">推しが話しかけてくれる Androidアプリ</p>
+    <svg class="logo" viewBox="0 30 440 162" role="img" aria-label="VOICEROID POCKET">
+      <rect x="113" y="43" width="220" height="36" rx="18" fill="#3d3a55"/>
+      <rect x="110" y="40" width="220" height="36" rx="18" fill="#ffb3be" stroke="#3d3a55" stroke-width="3"/>
+      <text x="220" y="65" text-anchor="middle" fill="#3d3a55" style="font: 700 19px 'Fredoka', sans-serif; letter-spacing: 6px">VOICEROID</text>
+      <text x="100" y="174" text-anchor="end" class="k" fill="#3d3a55">P</text>
+      <circle cx="138" cy="142" r="34" fill="#3d3a55"/>
+      <text x="176" y="174" textLength="228" lengthAdjust="spacingAndGlyphs" class="k" fill="#3d3a55">CKET</text>
+      <text x="95" y="168" text-anchor="end" class="k" fill="#ffb3be">P</text>
+      <circle cx="133" cy="136" r="33" fill="#b3e4ff" stroke="#3d3a55" stroke-width="5"/>
+      <g fill="#3d3a55">
+        <rect x="112" y="130" width="6" height="12" rx="3"/><rect x="121" y="121" width="6" height="30" rx="3"/>
+        <rect x="130" y="125" width="6" height="22" rx="3"/><rect x="139" y="116" width="6" height="40" rx="3"/>
+        <rect x="148" y="129" width="6" height="14" rx="3"/>
+      </g>
+      <text x="171" y="168" textLength="228" lengthAdjust="spacingAndGlyphs" class="k"><tspan fill="#ffb3be">C</tspan><tspan fill="#b3e4ff">K</tspan><tspan fill="#ffb3be">E</tspan><tspan fill="#b3e4ff">T</tspan></text>
+      <path d="M410 70 C412 84 413 85 427 87 C413 89 412 90 410 104 C408 90 407 89 393 87 C407 85 408 84 410 70 Z" fill="#b3e4ff" stroke="#3d3a55" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M40 64 C41.5 74 42 74.5 52 76 C42 77.5 41.5 78 40 88 C38.5 78 38 77.5 28 76 C38 74.5 38.5 74 40 64 Z" fill="#ffb3be" stroke="#3d3a55" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="372" cy="58" r="5" fill="#ffb3be" stroke="#3d3a55" stroke-width="2"/>
+    </svg>
+    <p class="catch">
+      <span style="box-shadow: 4px 4px 0 var(--pink)">あなたの毎日に</span><br>
+      <span style="box-shadow: 4px 4px 0 var(--blue)">推しのいる生活を</span>
+    </p>
+  </div>
+
+  <div class="line" aria-hidden="true"></div>
+  <div class="tape" aria-hidden="true">
+    <span>VOICEROID POCKET</span><span>✦</span><span>KOTONOHA AKANE</span><span>✦</span><span>KOTONOHA AOI</span><span>✦</span>
+    <span>VOICEROID POCKET</span><span>✦</span><span>KOTONOHA AKANE</span><span>✦</span><span>KOTONOHA AOI</span><span>✦</span>
+  </div>
+</div>
+</body>
+</html>

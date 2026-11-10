@@ -1,7 +1,7 @@
 // ページに出す文言とデータ。見本（design-ref/Top.dc.html）の文言をそのまま使っている。
 // [ ] で囲んだものはまだ決まっていない仮置き。
-import akaneImg from './images/akane.png'
-import aoiImg from './images/aoi.png'
+import akaneImg from './images/akane.webp'
+import aoiImg from './images/aoi.webp'
 import screenHome from './images/screens/home.webp'
 import screenWidget from './images/screens/widget.webp'
 import screenEditProfile from './images/screens/edit-profile.webp'

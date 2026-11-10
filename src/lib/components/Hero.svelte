@@ -72,6 +72,7 @@
       alt="琴葉 茜"
       width="956"
       height="1056"
+      fetchpriority="high"
       class="animate-bob md:absolute md:left-1/2 md:bottom-50 md:w-500 md:-ml-240 md:max-lg:w-420 md:max-lg:-ml-150 max-md:relative max-md:w-[min(380px,52%)] max-sm:mx-auto max-sm:mt-8 max-sm:w-[min(300px,82%)]"
     />
   </div>

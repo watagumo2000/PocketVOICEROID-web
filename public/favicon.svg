@@ -1,0 +1,12 @@
+<!-- ファビコン：ロゴ（src/lib/components/Logo.svelte）の「O」を切り出したもの。色は tokens.json の blue と ink -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="96 99 82 82">
+  <circle cx="138" cy="142" r="34" fill="#3d3a55"/>
+  <circle cx="133" cy="136" r="33" fill="#b3e4ff" stroke="#3d3a55" stroke-width="5"/>
+  <g fill="#3d3a55">
+    <rect x="112" y="130" width="6" height="12" rx="3"/>
+    <rect x="121" y="121" width="6" height="30" rx="3"/>
+    <rect x="130" y="125" width="6" height="22" rx="3"/>
+    <rect x="139" y="116" width="6" height="40" rx="3"/>
+    <rect x="148" y="129" width="6" height="14" rx="3"/>
+  </g>
+</svg>
