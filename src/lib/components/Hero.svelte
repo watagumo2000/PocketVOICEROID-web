@@ -7,8 +7,10 @@
   import { images } from '../data'
   import { button } from '../ui'
 
-  // キャッチコピー1行ぶんの白座布団
-  const catchLine = 'bg-surface py-10 px-4'
+  // キャッチコピー1行ぶんの白座布団。
+  // 縦書きでは、普通の文字に敷いた背景の幅がフォントの上下の寸法から決まり、文字が帯の片側に寄る。
+  // inline-block にして行の幅いっぱいに白地を敷き、文字を帯の中央に置く
+  const catchLine = 'inline-block mx-5 bg-surface py-10 px-4 leading-[1.3]'
   const catchLineSm = 'bg-surface py-2 px-8 [box-decoration-break:clone]'
 </script>
 
