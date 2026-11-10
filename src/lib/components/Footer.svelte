@@ -23,7 +23,11 @@
       {/each}
     </nav>
     <p class="text-caption text-on-ink-muted">
-      「VOICEROID」は株式会社AHSの商標です。{placeholders.characterRights}<br />
+      「VOICEROID」は株式会社AHSの商標です。<br />
+      {placeholders.characterRights.notice}（<a
+        href={placeholders.characterRights.guidelineUrl}
+        class="text-on-ink underline underline-offset-2 hover:no-underline focus-visible:outline-on-ink">キャラクター使用ガイドライン</a
+      >）<br />
       フォント：Zen Maru Gothic、Fredoka（SIL Open Font License 1.1）<br />
       © {author}
     </p>

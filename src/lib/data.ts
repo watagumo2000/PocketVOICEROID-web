@@ -113,7 +113,12 @@ export const situations: { icon: SituationIcon; name: string; when: string }[] =
 
 export const placeholders = {
   akaneVoiceLine: akaneLine,
-  characterRights: 'https://aivoice.jp/character/kotonoha/',
+  // 琴葉 茜・葵の著作権表記と、キャラクター使用ガイドラインのページ（株式会社エーアイ）。
+  // ガイドラインに「画像を掲載する場合には著作権表記を併せて掲載」とあるので、フッターに出す
+  characterRights: {
+    notice: '琴葉茜 琴葉葵 (c) AI Inc.',
+    guidelineUrl: 'https://aivoice.jp/character/kotonoha/',
+  },
   githubUrl: 'https://github.com/watagumo2000/PocketVOICEROID',
 }
 
