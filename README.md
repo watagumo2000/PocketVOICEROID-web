@@ -17,6 +17,7 @@
 **このリポジトリのコードは、ほぼすべて Anthropic の AI「Claude」が書いています。**
 
 作者（ﾜﾀｸﾞﾓ）が作りたいものを日本語で伝えました。それを受けて、[Claude Code](https://claude.com/claude-code)（Claude Opus 5.5）がコードを書き、動作確認をして、GitHub への公開まで行いました。デザインの見本とデザインシステムも、claude.ai の上で Claude と一緒に作ったものです（`design-ref/`）。
+**自分は何もしてないのに自分の成果にするのは恥だと思ったのでREADMEにAI製であることを記します。**
 
 ### Claude がやったこと
 
