@@ -1,0 +1,6 @@
+{
+  "markdown.extension.completion.enabled": false,
+  "markdown.extension.tableFormatter.enabled": false,
+  // Tailwind CSS v4 の @theme・@utility などを、VS Code の CSS チェックに教える（「Unknown at rule」を出さない）
+  "css.customData": [".vscode/tailwind.css-data.json"]
+}

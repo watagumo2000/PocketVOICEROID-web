@@ -1,0 +1,50 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@theme",
+      "description": "Tailwind CSS v4：デザイントークンを定義する。ここに書いた CSS 変数から bg-pink や text-heading-l などのユーティリティが作られる。",
+      "references": [{ "name": "Tailwind CSS: Theme variables", "url": "https://tailwindcss.com/docs/theme" }]
+    },
+    {
+      "name": "@utility",
+      "description": "Tailwind CSS v4：独自のユーティリティを定義する（例：@utility border-mid { border-width: 2.5px; }）。hover: や max-sm: などのバリアントも付けられる。",
+      "references": [{ "name": "Tailwind CSS: Adding custom utilities", "url": "https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities" }]
+    },
+    {
+      "name": "@variant",
+      "description": "Tailwind CSS v4：CSS の中で Tailwind のバリアント（hover、dark など）を使う。",
+      "references": [{ "name": "Tailwind CSS: Functions and directives", "url": "https://tailwindcss.com/docs/functions-and-directives" }]
+    },
+    {
+      "name": "@custom-variant",
+      "description": "Tailwind CSS v4：独自のバリアントを定義する。",
+      "references": [{ "name": "Tailwind CSS: Functions and directives", "url": "https://tailwindcss.com/docs/functions-and-directives" }]
+    },
+    {
+      "name": "@apply",
+      "description": "Tailwind CSS：ユーティリティのクラスを CSS の中で展開する。",
+      "references": [{ "name": "Tailwind CSS: Functions and directives", "url": "https://tailwindcss.com/docs/functions-and-directives" }]
+    },
+    {
+      "name": "@source",
+      "description": "Tailwind CSS v4：クラス名を探すファイルを追加で指定する。",
+      "references": [{ "name": "Tailwind CSS: Detecting classes in source files", "url": "https://tailwindcss.com/docs/detecting-classes-in-source-files" }]
+    },
+    {
+      "name": "@reference",
+      "description": "Tailwind CSS v4：CSS を出力せずに、テーマやユーティリティだけを読み込む（Svelte の <style> の中で使うときなど）。",
+      "references": [{ "name": "Tailwind CSS: Functions and directives", "url": "https://tailwindcss.com/docs/functions-and-directives" }]
+    },
+    {
+      "name": "@plugin",
+      "description": "Tailwind CSS v4：プラグインを読み込む。",
+      "references": [{ "name": "Tailwind CSS: Functions and directives", "url": "https://tailwindcss.com/docs/functions-and-directives" }]
+    },
+    {
+      "name": "@config",
+      "description": "Tailwind CSS v4：v3 形式の設定ファイル（tailwind.config.js）を読み込む。",
+      "references": [{ "name": "Tailwind CSS: Functions and directives", "url": "https://tailwindcss.com/docs/functions-and-directives" }]
+    }
+  ]
+}
