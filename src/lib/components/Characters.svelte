@@ -3,9 +3,8 @@
   // 切り替えるたびに {#key} で中身を作り直し、animate-swap（右から 40px スライド＋フェードイン 0.45 秒）を再生する。
   // 「視差効果を減らす」設定では app.css で動きが止まる。
   import SectionTitle from './SectionTitle.svelte'
-  import SpeakerIcon from './SpeakerIcon.svelte'
   import { characters, toneAt, otherTone } from '../data'
-  import { bg, button, fill, outlined, shadowQuote, wrap } from '../ui'
+  import { bg, outlined, shadowQuote, wrap } from '../ui'
 
   let idx = $state(0)
   const n = characters.length
@@ -76,10 +75,6 @@
           <!-- QuoteBox：名前の札とは逆の色の影 -->
           <p class={['mt-6 py-16 px-20 bg-surface text-quote', shadowQuote[sub]]}>「{c.quote}」</p>
           <p class="text-body text-ink-muted">{c.prof}</p>
-          <!-- ボイスの再生はまだ作らない（仮置き） -->
-          <button type="button" class={[button({ size: 'quiet' }), 'self-start']}>
-            <SpeakerIcon fillClass={fill[main]} />ボイスを聞く
-          </button>
         </div>
       {/key}
     </div>

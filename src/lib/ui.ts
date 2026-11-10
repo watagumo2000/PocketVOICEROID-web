@@ -36,7 +36,6 @@ export const tag = 'inline-flex items-center py-4 px-12 bg-surface border-thin b
 
 /* ---------- キャラ色の対応表 ---------- */
 export const bg: Record<Tone, string> = { pink: 'bg-pink', blue: 'bg-blue' }
-export const fill: Record<Tone, string> = { pink: 'fill-pink', blue: 'fill-blue' }
 export const marker: Record<Tone, string> = { pink: 'marker-pink', blue: 'marker-blue' }
 export const textShadowPop: Record<Tone, string> = {
   pink: 'text-shadow-pop-pink',
