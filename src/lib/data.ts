@@ -109,9 +109,9 @@ export const situations: { icon: SituationIcon; name: string; when: string }[] =
 ]
 
 export const placeholders = {
-  akaneVoiceLine: '[茜のセリフがここに入ります]',
-  characterRights: '[キャラクターの権利表記（公式ガイドラインに沿って記載）]',
-  githubUrl: '#',
+  akaneVoiceLine: '琴葉茜や！よろしくやで！',
+  characterRights: 'https://aivoice.jp/character/kotonoha/',
+  githubUrl: 'https://github.com/watagumo2000/PocketVOICEROID',
 }
 
 export const author = 'ﾜﾀｸﾞﾓ'
