@@ -38,7 +38,7 @@
           <Sparkle tone={otherTone(tone)} late={i % 2 === 1} class={sparkles[i]} />
           <div class="absolute left-1/2 top-18 -translate-x-1/2">
             <!-- スマホでは 500px の高さに収まるように枠を小さくする（比率はそのまま） -->
-            <PhoneFrame label={f.shot} class="max-sm:w-220" />
+            <PhoneFrame src={f.screen?.src} alt={f.screen?.alt} label={f.label} class="max-sm:w-220" />
           </div>
         </div>
 

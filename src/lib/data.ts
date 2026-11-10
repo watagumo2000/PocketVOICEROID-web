@@ -2,6 +2,10 @@
 // [ ] で囲んだものはまだ決まっていない仮置き。
 import akaneImg from './images/akane.png'
 import aoiImg from './images/aoi.png'
+import screenHome from './images/screens/home.webp'
+import screenWidget from './images/screens/widget.webp'
+import screenEditProfile from './images/screens/edit-profile.webp'
+import screenEditLines from './images/screens/edit-lines.webp'
 
 export type Tone = 'pink' | 'blue'
 
@@ -19,7 +23,9 @@ export type SectionId = (typeof navItems)[number]['id']
 export const images = { akane: akaneImg, aoi: aoiImg }
 
 export interface Feature {
-  shot: string
+  /** アプリ画面のスクリーンショット（縦長）。ないときは label の点線の枠を出す */
+  screen?: { src: string; alt: string }
+  label: string
   title: string
   body: string
   tags: string[]
@@ -27,28 +33,32 @@ export interface Feature {
 
 export const features: Feature[] = [
   {
-    shot: 'ホーム画面の\nスクリーンショット',
+    screen: { src: screenHome, alt: 'アプリのホーム画面。琴葉 葵が吹き出しで「こんにちは、琴葉葵です。」と話している' },
+    label: 'ホーム画面の\nスクリーンショット',
     title: 'サッと開いていつでも会話',
     body: 'アプリを開くとキャラクターがホーム画面で待っていてくれるから、すぐに会話をスタートできます！タップするとセリフが変わり、1分ごとに自動で次の話題へ。3日以上ぶりに開くと「久しぶり」のセリフで迎えてくれます。',
     tags: ['#タップで会話', '#久しぶりのお出迎え'],
   },
   {
-    shot: 'ウィジェットを置いた\nホーム画面',
+    screen: { src: screenWidget, alt: 'スマホのホーム画面に置いた、琴葉 茜と琴葉 葵のウィジェット' },
+    label: 'ウィジェットを置いた\nホーム画面',
     title: 'ホーム画面でも楽しく会話',
     body: 'ウィジェットをホーム画面に置けば、アプリを開かなくても会話できます！置くときに表示するキャラを選べて、タップするとセリフが変わり、30分ごとに今の状況に合ったセリフへ切り替わります。',
     tags: ['#ウィジェット対応', '#30分ごとに更新'],
   },
   {
-    shot: '通知が届いた\n画面',
-    title: '朝も夜も、通知で話しかけてくれる',
-    body: '朝7〜9時台には起こしてくれる通知、深夜0〜3時台には「早く寝て」と怒る通知が、それぞれ1日1回届きます。話しかけてくるキャラは毎回ランダム！',
-    tags: ['#おはよう通知', '#早く寝て通知'],
+    screen: { src: screenEditProfile, alt: 'キャラを追加する画面。名前、テーマ色、動き方を選ぶ欄が並んでいる' },
+    label: 'キャラを追加する\n画面',
+    title: 'キャラクターを、自分で作れる',
+    body: '名前とテーマ色を決めて、表情の画像を登録すれば、自分だけのキャラクターの完成です！動き方も「ふわふわ」「ゆらゆら」「ぴょこぴょこ」などから選べます。',
+    tags: ['#キャラを追加', '#動き方を選べる'],
   },
   {
-    shot: 'キャラ編集画面の\nスクリーンショット',
-    title: 'キャラもセリフも、自分で作れる',
-    body: '名前やテーマ色、表情の画像、セリフを、アプリ上から自由に追加・編集できます。セリフごとに使う表情や話す状況、ボイスも設定できて、茜・葵は「初期状態に戻す」こともできます。',
-    tags: ['#キャラを追加', '#表情とセリフを編集'],
+    screen: { src: screenEditLines, alt: 'セリフを編集する画面。セリフの一覧と、「いつでも」「時間帯」などの絞り込みが並んでいる' },
+    label: 'セリフを編集する\n画面',
+    title: 'セリフも、自由に追加・編集',
+    body: 'セリフはアプリ上から追加・編集できます！セリフごとに使う表情や話す状況、ボイスも設定できて、「いつでも」「時間帯」などの状況ごとに絞り込んで確かめられます。茜・葵は「初期状態に戻す」こともできます。',
+    tags: ['#セリフを追加', '#表情と状況を設定'],
   },
 ]
 

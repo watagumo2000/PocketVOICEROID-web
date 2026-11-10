@@ -17,7 +17,8 @@
 >
   <div class="size-full rounded-screen overflow-hidden bg-surface-soft">
     {#if src}
-      <img {src} {alt} class="block size-full object-cover" />
+      <!-- スクリーンショットは縦長（例：1080×2400）。枠より少し縦長でも、左右を少しだけ切って埋める -->
+      <img {src} {alt} loading="lazy" decoding="async" class="block size-full object-cover object-top" />
     {:else}
       <div
         class="flex flex-col items-center justify-center gap-6 size-full border-2 border-dashed border-placeholder rounded-screen text-ink-muted text-tag text-center"
